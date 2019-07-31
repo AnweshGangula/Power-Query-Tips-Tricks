@@ -1,4 +1,4 @@
-**Expand All Function:**
+## Expand All Function:
 
 Make sure the name of the function is "ExpandAll"
 
@@ -25,9 +25,11 @@ Make sure the name of the function is "ExpandAll"
     in
         Source
     
-**Rename Columns function:**
+## Rename Columns function:
     
-In the above Query, we are using another function at the last step (OutputTabe) to rename and sort the View/Viewfolder columns on their folder order respectively. Below is the code for the function:
+In the above function (ExpadAll), we are using another function at the last step (OutputTabe) called "Rename Columns" to rename and sort the View/Viewfolder columns on their folder order respectively. 
+
+Below is the code for the function:
     
     let
     Source = (TableName as table) =>
