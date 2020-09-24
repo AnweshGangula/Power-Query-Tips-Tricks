@@ -2,6 +2,8 @@
 
 Make sure the name of the function is "ExpandAll"
 
+Below functions uses another function called "Rename Columns" in the last step (OutputTable) which you can [find here](https://github.com/Gangula2/Power-Query-Tips-Tricks/blob/master/Rename%20Multiple%20Columns.md)
+
     let
         Source = (TableToExpand as table, optional ColumnNumber as number) =>
         let
