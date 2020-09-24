@@ -24,20 +24,3 @@ Make sure the name of the function is "ExpandAll"
          OutputTable
     in
         Source
-    
-## Rename Columns function:
-    
-In the above function (ExpadAll), we are using another function at the last step (OutputTabe) called "Rename Columns" to rename and sort the View/Viewfolder columns on their folder order respectively. 
-
-Below is the code for the function:
-    
-    let
-    Source = (TableName as table) =>
-     let
-        ReorderColumns = Table.ReorderColumns(TableName,List.Sort(Table.ColumnNames(TableName),each Text.Length(_))),
-        RenameColumns = Table.TransformColumnNames(ReorderColumns, each if Text.Contains(_,"view.") then "View " & Number.ToText(Number.RoundDown(((Text.Length(_)-29)/10))) else if Text.Contains(_,"viewfolder.") then "Viewfolder " & Number.ToText(Number.RoundDown(((Text.Length(_)-24)/10))) else "remove"),
-        RemoveColumns = Table.RemoveColumns(RenameColumns, List.Select(Table.ColumnNames(RenameColumns), each Text.Contains(_, "remove")))
-     in 
-         RemoveColumns
-    in
-        Source
