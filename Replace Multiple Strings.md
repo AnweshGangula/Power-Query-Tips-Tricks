@@ -15,3 +15,7 @@ replace the values in **{"$","a"},{"¥","b"},{"¢","c"},{"£","d"}** in below st
 replace the values in **â¬£Â£€$** in below step to match your strings
 
     = Table.TransformColumns(#"Previous Step",{{"Column Header", each List.Accumulate(Text.ToList("â¬£Â£€$"),_,(String,Remove) => Text.Replace(String,Remove,""))}})
+    
+References: 
+* You can check out the [following video](https://www.youtube.com/watch?v=MLrRlPh_ZFQ) from Miguel on how to create a custom function that does the same thing. Although, the Syntax that he uses is for Advanced users.
+* Also, you can also have a look at the [following video](https://www.youtube.com/watch?v=1EjIhYVUQmk&feature=youtu.be&list=PLmajzIMNl6yF3jRegPeByEYSS6J4OLMTb) by Marcel where he explains the List.Accumulate function.
